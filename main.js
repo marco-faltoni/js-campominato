@@ -10,23 +10,30 @@ function generaRandom(min, max) {
     return numero;
 }
 
-var giocata_pc = generaRandom(1, 100);
-
-
-function generaRandom(numeri) {
+function generaArrayMine() {
     var numeri = [];
     while(numeri.length < 16){
-        var r = Math.floor(Math.random() * 100) + 1;
+        var r = generaRandom(1, 100);
         if(numeri.indexOf(r) === -1) numeri.push(r);
     }
-    console.log(numeri);
+    return numeri;
 }
 
+var giocata_pc = generaArrayMine();
+console.log(giocata_pc);
 
 
 
 // In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
+var num = [];
+do {
+    var giocata_utente = parseInt(prompt('inserisci un numero tra 1 e 100');
+    num.push(giocata_utente);
 
+    if (num == giocata_pc) {
+        console.log('Hai perso, hai preso una mina');
+    }
+} while(isNaN(giocata_utente) || giocata_utente < 1 || giocata_utente > 100 || num.length > 84);
 
 // Se il numero è presente nella lista delle mine, la partita termina, altrimenti il gioco continua chiedendo all'utente un altro numero (continua a giocare).
 
