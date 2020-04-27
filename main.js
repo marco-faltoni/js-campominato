@@ -26,18 +26,34 @@ console.log(giocata_pc);
 
 // In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
 var num = [];
+var continua = true;
 do {
-    var giocata_utente = parseInt(prompt('inserisci un numero tra 1 e 100');
+    var giocata_utente = parseInt(prompt('inserisci un numero tra 1 e 100'));
     num.push(giocata_utente);
 
-    if (num == giocata_pc) {
-        console.log('Hai perso, hai preso una mina: le tue giocate sono state ' + (giocata_pc - giocata_utente) );
+    if (giocata_pc.indexOf(giocata_utente) != -1) {
+        console.log('Hai perso, hai preso una mina: le tue giocate sono state ' + num.length );
+        continua = false;
     }
-} while(isNaN(giocata_utente) || giocata_utente < 1 || giocata_utente > 100 || num.length > 84);
+    if (isNaN(giocata_utente)) {
+        console.log('Hai barato, non è un numero');
+        continua = false;
+    }
 
-if (isNaN(giocata_utente) || giocata_utente < 1 || giocata_utente > 100 || num.length > 84) {
-    console.log('Hai barato, ricarica la pagina e gioca ancora.');
-} else {
+    if (giocata_utente < 1) {
+        console.log('Hai barato, il numero è minore di 1');
+        continua = false;
+    }
+
+    if (giocata_utente > 100) {
+        console.log('Hai barato, il numero è maggiore di 100.');
+        continua = false;
+    }
+
+} while(continua);
+
+
+if (num.lenght == 84) {
     console.log('Complimenti! sei riuscito a battere il Computer e a sviare tutte le mine.');
 }
 
