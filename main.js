@@ -31,9 +31,10 @@ do {
     num.push(giocata_utente);
 
     if (num == giocata_pc) {
-        console.log('Hai perso, hai preso una mina');
+        console.log('Hai perso, hai preso una mina: le tue giocate sono state ' + (giocata_pc - giocata_utente) );
     }
 } while(isNaN(giocata_utente) || giocata_utente < 1 || giocata_utente > 100 || num.length > 84);
+console.log('Complimenti! sei riuscito a battere il Computer e a sviare tutte le mine.');
 
 // Se il numero è presente nella lista delle mine, la partita termina, altrimenti il gioco continua chiedendo all'utente un altro numero (continua a giocare).
 
